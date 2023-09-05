@@ -14,7 +14,7 @@ puts "Creating 10 movies in the database"
 10.times do
   movie = Movie.new(
     title: Faker::Movie.title,
-    overview: Faker::Quote.matz,
+    overview: Faker::Quote.matz + rand(10000000).to_s,
     poster_url: "https://source.unsplash.com/featured/movie?id=#{rand(10000000)}",
     rating: Faker::Number.decimal(l_digits: 2)
   )
