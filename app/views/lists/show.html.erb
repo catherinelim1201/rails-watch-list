@@ -1,0 +1,34 @@
+Form from list#show
+<div class="container">
+  <h1><%= @list.name %></h1>
+
+  <p>Bookmarks</p>
+
+  <% @list.bookmarks.each do |bookmark| %>
+
+  <div>
+    <h3>Movie name</h3>
+    <h4>
+      <%= bookmark.movie.title %>
+    </h4>
+    <img src="https://images.unsplash.com/photo-1692723258153-8ba8cce78bcd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MzgxOTk2Mw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=100" alt="">
+    <p><%= bookmark.comment %> </p>
+    <br>
+
+    <%= link_to "Delete", bookmark_path(bookmark),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
+  </div>
+
+    <%# <p>bookmark.id.comment</p> %>
+  <% end %>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit %>
+  <% end %>
+
+
+  <%= link_to "Back to Main Page", lists_path %>
+</div>

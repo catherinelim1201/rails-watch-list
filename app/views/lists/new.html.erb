@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Create a new list</h1>
+
+  <%= form_for @list do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit %>
+  <% end %>
+
+  <hr>
+
+
+</div>
+
+
+<%# GET /lists #index
+GET /lists/123 #show
+GET /lists/new #new
+POST /lists #create %>

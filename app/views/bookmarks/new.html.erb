@@ -1,0 +1,12 @@
+Form from bookmarks#new
+
+<div class="container">
+  <h1><%= @list.name %></h1>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+  test
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit %>
+  <% end %>
+</div>
